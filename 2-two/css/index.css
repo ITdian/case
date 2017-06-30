@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    border:none;
+    list-style: none;
+}
+.box{
+    margin: 50px auto;
+    /*background: deepskyblue;*/
+    /*position: relative;*/
+    width: 340px;
+    height: 340px;
+    text-align: center;
+}
+.oul{
+    background: deepskyblue;
+    position: relative;
+    width: 340px;
+    height: 340px;
+    text-align: center;
+}
+
+.oul li{
+    /*position: absolute;*/
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.oul li img{
+    width: 100px;
+    height: 100px;
+}

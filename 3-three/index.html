@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            /*margin: 100px auto;*/
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+</div>
+<script>
+    window.onload = function () {
+        var box = document.getElementById('box');
+        box.onmousedown = function (event) {
+            var e = window.event ||event;
+            var distanceX = e.clientX - box.offsetLeft;
+            var distanceY = e.clientY - box.offsetTop;
+            document.onmousemove =function (event) {
+                var e = window.event ||event;
+                var myX = e.clientX;
+                var myY = e.clientY;
+                box.style.position = 'absolute';
+                box.style.left = myX - distanceX +'px';
+                box.style.top = myY - distanceY +'px';
+            };
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        };
+    }
+</script>
+</body>
+</html>

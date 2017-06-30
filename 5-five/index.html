@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排他思想</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 500px;
+            background: skyblue;
+            margin: 50px auto;
+        }
+        #top{
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+        }
+        #bottom>div{
+            display: none;
+        }
+        .curr{
+            background:red ;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+<div id="top">
+    <button class="curr">1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+</div>
+<div id="bottom">
+    <div style="display: block">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+</div>
+</div>
+<script>
+    window.onload = function () {
+        var top = document.getElementById('top');
+        var btns = top.getElementsByTagName('button');
+        var bottom = document.getElementById('bottom');
+        var divs = bottom.getElementsByTagName('div');
+        for( var i= 0,len = btns.length;i < len;i ++){
+            btns[i].index = i;
+            btns[i].onclick = function () {
+                for( var i= 0,len = btns.length;i< len;i ++){
+                    btns[i].className = '';
+                        }
+                      this.className = 'curr';
+                    for( var k= 0,len = divs.length;k < len;k ++){
+                            divs[k].style.display = 'none'
+                        }
+                    divs[this.index].style.display = 'block';
+                }
+            }
+    }
+</script>
+</body>
+</html>

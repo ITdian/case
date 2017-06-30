@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>缓动动画</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">点击</button>
+<div id="box">
+</div>
+<script>
+    window.onload = function () {
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+        var timer = null;
+        btn.onclick = function () {
+            change(0,800)
+        };
+        function change(begin,target) {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                var speed = Math.ceil((target-begin)*0.2);
+                begin += speed;
+                console.log(begin);
+                console.log(speed);
+                console.log(target);
+                if(begin>=target){
+                    clearInterval(timer);
+                    begin = target;
+                }
+                box.style.left = begin +'px';
+            },100)
+        }
+    }
+</script>
+</body>
+</html>

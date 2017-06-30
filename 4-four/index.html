@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器的匀速动画</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">登录</button>
+<div id="box"></div>
+<script>
+    window.onload = function () {
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+        var  timer = null;
+
+        btn.onclick = function(){
+            clearInterval(timer);
+            var myL  = 0;
+            var tag = 800;
+        timer = setInterval(function () {
+             myL+=40;
+            console.log(myL);
+            if(myL>=tag){
+                clearInterval(timer);
+                myL=tag;
+            }
+            box.style.position = 'absolute';
+            box.style.left = myL +'px';
+        },10)
+    }
+    }
+</script>
+</body>
+</html>
